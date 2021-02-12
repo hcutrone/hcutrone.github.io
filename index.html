@@ -33,7 +33,7 @@
 
 	<header style="text-align:center; color:snow; font-family:courier;" >
 		<h1>
-		    <img src="Images/HeadShot.jpg" alt="Head Shot" style="max-width:15%; height:auto">
+		    <img src="Images/headshot.png" alt="Head Shot" style="max-width:15%; height:auto">
 		    Harrison Cutrone <br />
 		</h1>
 		<p> hcutrone@calpoly.edu | (704)572-4289 | 805 Pacheco Way, San Luis Obispo, CA </p>
@@ -54,15 +54,30 @@
 		    	805 Pacheco Way, San Luis Obispo, CA, 93410 </pre>
 		    </aside> -->
 
-		</section>
+		    <form style="color:whitesmoke" method="post" name="contact">
+		    	<label for="fname">First Name: </label><br />
+		    	<input type="text" id="fname" name="fname" /><br />
+		    	<label for="lname">Last Name: </label><br />
+		    	<input type="text" id="lname" name="lname" /><br />
+		    	<label for="email">Email: </label><br />
+		    	<input type="email" id="email" name="email" /><br />
+		    	<label for="subject">Subject: </label><br>
+		    	<input type="text" id="subject" name="subject" /><br />
+		    	<label for="message">Message: </label><br />
+		    	<textarea name="message" rows="10" cols="30"></textarea><br /><br />
 
-	    <div style="background-color:grey;">
-	    	<h2 style="color:ghostwhite">You can also find some of my coding projects:</h2>
-	    	<hr />
+		    	<input type="submit" value="Submit" />
+		    </form>
+
+			</section>
+
+    <div style="background-color:grey;">
+    	<h2 style="color:ghostwhite">You can also find some of my coding projects:</h2>
+    	<hr />
 
 
 
-	    </div>
+    </div>
 	</body>
 
 

@@ -52,8 +52,20 @@ nav ul li {
   color: var(--text-color);
 }
 
+main ul {
+  justify-content: space-around;
+}
+
 main ul li {
-  margin-left: 20px;
+  color: var(--text-color);
+}
+
+.click {
+  cursor: pointer;
+}
+
+main ul {
+  margin-left: 40px;
 }
 
 a {
@@ -68,7 +80,7 @@ p {
 .container {
   max-width: 600px;
   margin: auto;
-  height: 70vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;

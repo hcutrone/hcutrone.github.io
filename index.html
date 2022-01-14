@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <title>Terminal</title>
+  <title>harrisoncutrone:$</title>
 </head>
 <body>
   <div class="container">
@@ -18,10 +18,31 @@
     <main>
       <h1>harrisoncutrone:$<span class="cursor">|</span></h1>
 
+      <!-- JSON Database: { languageName: [id, /name, content, gitLink] } -->
+      <!-- potentially also include a content id (id-content) -->
+
       <h3>/Projects</h3>
-      <ul>
-        <li><a href="https://github.com/hcutrone/SortingAlgorithm" target="_blank">/Sorting-Algorithm-Visualizer</a></li>
-        <li><a href="https://github.com/hcutrone/Pokebot" target="_blank">/Pokebot</a></li>
+      <ul>/Python
+        <ul>
+          <li><span class="click" id="sorting">/Sorting-Algorithm-Visualizer</span></li>
+          <li><span class="click" id="pokebot">/Pokebot</span></li>
+          <li><span class="click" id="py-huffman">/HuffmanEncoder-Decoder</span></li>
+        </ul>
+      </ul>
+
+      <ul>/C
+        <ul>
+          <li><span class="click" id="mush">/MUSH</span></li>
+          <li><span class="click" id="c-huffman">/HuffmanEncoder-Decoder</span></li>
+        </ul>
+      </ul>
+
+      <ul>/JavaScript
+        <ul>
+          <li><span class="click" id="task-tracker">/Task-Tracker</span></li>
+          <li><span class="click" id="passgen">/PasswordGenerator</span></li>
+          <li><span class="click" id="choice">/ChoicePicker</span></li>
+        </ul>
       </ul>
 
       <br>
@@ -36,16 +57,63 @@
   <div class="hidden">
     <div id="contact-content">
       <h2>contactMe:$<span class="cursor">|</span></h2>
-      <p>Hello! Please reach out to me!.</p>
+      <p>Please feel free to reach out to me with any questions you have for me!</p>
       <ul>
-        <li>Phone</li>
-        <li>Email</li>
+        <li>Phone: 704-572-4289</li>
+        <li>Email: hcutrone@calpoly.edu</li>
       </ul>
     </div>
 
     <div id="about-content">
       <h2>aboutMe:$<span class="cursor">|</span></h2>
-      <p>Hello! This is a summary about me.</p>
+      <p>Hello! My name is Harrison Cutrone and I am currently a second year Computer Science student at Cal Poly in San Luis Obispo. I am currently looking for an internship for Summer 2022 and a part-time internship during the 2022-2023 school year!</p>
+    </div>
+
+    <div id="sorting-content">
+      <h2>Sorting-Algorithm-Visualizer:$<span class="cursor">|</span></h2>
+      <p>A program that uses tkinter to display an array of rectangles and buttons for the user to choose a sorting algorithm, speed, and size. Then, the program randomizes the rectangles and sorts them, highlighting rectangles as it goes to visualize the chosen sorting algorithm.</p>
+      <p><a href="https://github.com/hcutrone/SortingAlgorithm" target="_blank">GitHub</a></p>
+    </div>
+
+    <div id="pokebot-content">
+      <h2>Pokebot:$<span class="cursor">|</span></h2>
+      <p>A Discord bot created in Python that accesses the PokeAPI to return information about Pokemon.</p>
+      <p><a href="https://github.com/hcutrone/PokemonBot" target="_blank">GitHub</a></p>
+    </div>
+
+    <div id="py-huffman-content">
+      <h2>Pokebot:$<span class="cursor">|</span></h2>
+      <p>A python program that takes can take in files and compress them following the Huffman Method. It can also accept files previously compressed with the Huffman Method and uncompress them.</p>
+      <p style="font-size: 12px;">This project was created for a class, so the source code is not public. I would be happy to privately email you any files you would like!</p>
+    </div>
+
+    <div id="mush-content">
+      <h2>MUSH:$<span class="cursor">|</span></h2>
+      <p>MUSH is a Minimally Useful SHell I coded in C for the final of my CPE 357 - Systems Programming class.</p>
+      <p style="font-size: 12px;">This project was created for a class, so the source code is not public. I would be happy to privately email you any files you would like!</p>
+    </div>
+
+    <div id="c-huffman-content">
+      <h2>Pokebot:$<span class="cursor">|</span></h2>
+      <p>A C program that takes can take in files and compress them following the Huffman Method. It can also accept files previously compressed with the Huffman Method and uncompress them.</p>
+      <p style="font-size: 12px;">This project was created for a class, so the source code is not public. I would be happy to privately email you any files you would like!</p>
+    </div>
+
+    <div id="task-tracker-content">
+      <h2>Task-Tracker:$<span class="cursor">|</span></h2>
+      <p>A simple task tracker made as a tutorial to React. Created by following a tutorial by Brad Travery (Traversy Media) on YouTube.</p>
+      <p><a href="https://github.com/hcutrone/JS-TaskTracker" target="_blank">GitHub</a></p>
+    </div>
+
+    <div id="passgen-content">
+      <h2>PasswordGenerator:$<span class="cursor">|</span></h2>
+      <p>A JavaScript password generater uring Node.js. Created by following a YouTube tutorial from Brad Traversy.</p>
+      <p><a href="https://github.com/hcutrone/JS-PasswordGenerator" target="_blank">GitHub</a></p>
+    </div>
+    <div id="choice-content">
+      <h2>ChoicePicker:$<span class="cursor">|</span></h2>
+      <p>A vanilla JavaScript app that takes choices from a user (separated by commas) and randomly selects one. Original app made by Brad Traversy, I followed along with his YouTube video to make mine.</p>
+      <p><a href="https://github.com/hcutrone/JS-ChoicePicker" target="_blank">GitHub</a></p>
     </div>
   </div>
   

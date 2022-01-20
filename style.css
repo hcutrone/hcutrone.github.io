@@ -56,7 +56,7 @@ main ul {
   justify-content: space-around;
 }
 
-main ul li {
+main ul ul li {
   color: var(--text-color);
 }
 

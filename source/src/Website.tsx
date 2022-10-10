@@ -1,4 +1,6 @@
-import { Text, Flex, Box, HStack, VStack, Spacer, Link, Image } from '@chakra-ui/react';
+import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, SimpleGrid, Icon, IconProps, Divider } from '@chakra-ui/react';
+import React from 'react';
+import { GradCap, Github, Linkedin, About, Experience } from './Icons'
 
 const BackgroundText = () => {
   return (
@@ -6,15 +8,20 @@ const BackgroundText = () => {
   )
 };
 
-const LogoLink = ({ url, icon }: { url: string, icon?: string }) => {
+type LogoLinkProps = {
+  url: string;
+  icon: React.FC;
+}
+
+const LogoLink = ({ url, icon, ...iconProps }: LogoLinkProps & IconProps) => {
   return (
     <Link href={url}>
-      <Image src={icon} alt="LogoLink" />
+      <Icon as={icon} {...iconProps}/>
     </Link>
   )
 };
 
-const PageSection = ({ children, ...props }: any) => {
+const PageSection = ({ children, ...props }: { children: React.ReactNode | React.ReactNode[] & FlexProps }) => {
   return (
     <Flex
       direction="column"
@@ -31,21 +38,18 @@ const PageSection = ({ children, ...props }: any) => {
 
 const Header = () => {
   return (
-    <HStack
-      w="100vw"
-      h="100px"
+    <VStack
+      w="32px"
+      h="100vh"
       position="fixed"
-      backgroundColor="blackAlpha.500"
       mt={-4}
-      ml={-4}
-      p={8}
       spacing={10}
     >
       <Spacer />
-      <LogoLink url="https://www.github.com/hcutrone" icon="./Github-Mark-Light-32px.png" />
-      <LogoLink url="https://www.linkedin.com/in/hcutrone" icon="./linkedin.png" />
+      <LogoLink url="https://www.github.com/hcutrone" icon={Github} boxSize={6} />
+      <LogoLink url="https://www.linkedin.com/in/hcutrone" icon={Linkedin} boxSize={6} />
       <Spacer />
-    </HStack>
+    </VStack>
   );
 };
 

@@ -57,6 +57,7 @@ const LandingBlock =() => {
   return (
     <PageSection>
       <VStack m="auto" spacing={0}>
+        <Image src="./Harrison_Cutrone_Prop.jpg" boxSize={300} borderRadius="full" />
         <BackgroundText />
         <Text fontWeight="bold">I'm Harrison Cutrone.</Text>
         <Text px={8} fontSize="4xl">

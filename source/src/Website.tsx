@@ -70,6 +70,50 @@ const LandingBlock =() => {
   );
 };
 
+type GridBlockProps = {
+  header: string;
+  icon: React.FC;
+  children: React.ReactNode | React.ReactNode[];
+};
+
+const GridBlock = ({ children, header, icon }: GridBlockProps) => {
+  return (
+    <Flex
+      direction="column"
+      lineHeight="1.3"
+      bgColor="blackAlpha.800"
+      borderRadius={10}
+      px={4}
+      py={4}
+    >
+      <HStack mx="auto" mb={4}>
+        <Icon as={icon} boxSize={10} mr={4}/>
+        <Text>{header}</Text>
+      </HStack>
+      <Divider mb={4}/>
+      {children}
+    </Flex>
+  );
+};
+
+const SecondBlock = () => {
+  return (
+    <SimpleGrid mt={4} minChildWidth="300px" spacing={4}>
+      <GridBlock header="About Me" icon={About}>
+        <Text fontSize="2xl">Hi</Text>
+      </GridBlock>
+      <GridBlock header="Experience" icon={Experience}>
+        <Text fontSize="2xl">Software Engineering Apprentice - iFixit</Text>
+      </GridBlock>
+      <GridBlock header="Education" icon={GradCap}>
+        <Text fontSize="2xl">California Polytechnic State University - San Luis Obispo</Text>
+        <Text fontSize="2xl">August 2020 - December 2023</Text>
+        <Text fontSize="2xl">GPA: 3.86</Text><Text fontSize="2xl">Dean's List: 6 Quarters</Text><Text fontSize="2xl">President's List: 2020-2022</Text>
+      </GridBlock>
+    </SimpleGrid>
+  );
+};
+
 export const Website = () => {
   return (
     <Box
@@ -82,6 +126,7 @@ export const Website = () => {
     >
       <Header />
       <LandingBlock />
+      <SecondBlock />
     </Box>
   );
 }

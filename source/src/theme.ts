@@ -18,5 +18,8 @@ export const theme = extendTheme({
   },
   components: {
     Text,
+  },
+  fonts: {
+    body: `'Dosis', sans-serif`,
   }
 })

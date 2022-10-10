@@ -1,4 +1,12 @@
 import { extendTheme } from "@chakra-ui/react";
+import { ComponentStyleConfig } from "@chakra-ui/react";
+
+const Text: ComponentStyleConfig = {
+  baseStyle: {
+    color: "white",
+    fontSize: "4xl",
+  }
+};
 
 export const theme = extendTheme({
   styles: {
@@ -8,4 +16,7 @@ export const theme = extendTheme({
       }
     })
   },
+  components: {
+    Text,
+  }
 })

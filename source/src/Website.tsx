@@ -21,7 +21,11 @@ const LogoLink = ({ url, icon, ...iconProps }: LogoLinkProps & IconProps) => {
   )
 };
 
-const PageSection = ({ children, ...props }: { children: React.ReactNode | React.ReactNode[] & FlexProps }) => {
+type PageSectionProps = {
+  children: React.ReactNode | React.ReactNode[] | undefined;
+};
+
+const PageSection = ({ children, ...flexProps }: PageSectionProps & FlexProps) => {
   return (
     <Flex
       direction="column"
@@ -29,7 +33,7 @@ const PageSection = ({ children, ...props }: { children: React.ReactNode | React
       lineHeight="1.3"
       bgColor="blackAlpha.800"
       borderRadius={10}
-      {...props}
+      {...flexProps}
     >
       {children}
     </Flex>

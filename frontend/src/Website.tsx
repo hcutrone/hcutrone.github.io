@@ -114,7 +114,9 @@ const SecondBlock = () => {
       <GridBlock header="Education" icon={GradCap}>
         <Text fontSize="2xl">California Polytechnic State University - San Luis Obispo</Text>
         <Text fontSize="2xl">August 2020 - December 2023</Text>
-        <Text fontSize="2xl">GPA: 3.86</Text><Text fontSize="2xl">Dean's List: 6 Quarters</Text><Text fontSize="2xl">President's List: 2020-2022</Text>
+        <Text fontSize="2xl">GPA: 3.86</Text>
+        <Text fontSize="2xl">Dean's List: 6 Quarters</Text>
+        <Text fontSize="2xl">President's List: 2020-2022</Text>
       </GridBlock>
     </SimpleGrid>
   );
@@ -122,7 +124,7 @@ const SecondBlock = () => {
 
 const GitHubLink = ({ gitlink, schoolProject }: { gitlink: string, schoolProject: boolean }) => {
   if (schoolProject) {
-    return <Text fontSize="lg">This project was created for a class, so the code is private. I'd be happy to send you the code directly if you email me at <Code>harrisoncutrone@gmail.com</Code></Text>;
+    return null;
   }
   return (
     <Link color="white" fontSize="lg" href={gitlink}>Check it out on GitHub!</Link>
@@ -149,6 +151,13 @@ const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
   );
 };
 
+const Subtitle = ({ title }: { title: string }) => {
+  if (title === 'School Projects') {
+    return <Text fontSize="lg">These projects were created for a class, so the code is private. I'd be happy to send you the code directly if you email me at <Code>harrisoncutrone@gmail.com</Code></Text>;
+  }
+  return null;
+};
+
 const ProjectBlock = ({ title, projects }: { title: string; projects: ProjectProps[] }) => {
   const projectComponents = projects.map(({ name, content, gitlink, schoolProject }) => {
     return <Project name={name} content={content} gitlink={gitlink} schoolProject={schoolProject} />
@@ -159,6 +168,7 @@ const ProjectBlock = ({ title, projects }: { title: string; projects: ProjectPro
       <HStack p={4} spacing={10} m="auto" w="100%" overflow="scroll">
         {projectComponents}
       </HStack>
+      <Subtitle title={title} />
     </PageSection>
   );
 };

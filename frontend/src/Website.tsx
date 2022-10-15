@@ -1,7 +1,7 @@
-import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, SimpleGrid, Icon, IconProps, Divider } from '@chakra-ui/react';
+import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, SimpleGrid, Icon, IconProps, Divider, Code } from '@chakra-ui/react';
 import React from 'react';
 import { GradCap, Github, Linkedin, About, Experience } from './Icons'
-
+import Axios from 'axios';
 const BackgroundText = () => {
   return (
     <Text fontSize="150px" m="0" bgGradient='linear(to-tl, #832cdd, #ce24ad)' bgClip="text">Hey there!</Text>
@@ -33,6 +33,7 @@ const PageSection = ({ children, ...flexProps }: PageSectionProps & FlexProps) =
       lineHeight="1.3"
       bgColor="blackAlpha.800"
       borderRadius={10}
+      align="center"
       {...flexProps}
     >
       {children}
@@ -119,7 +120,58 @@ const SecondBlock = () => {
   );
 };
 
+const GitHubLink = ({ gitlink, schoolProject }: { gitlink: string, schoolProject: boolean }) => {
+  if (schoolProject) {
+    return <Text fontSize="lg">This project was created for a class, so the code is private. I'd be happy to send you the code directly if you email me at <Code>harrisoncutrone@gmail.com</Code></Text>;
+  }
+  return (
+    <Link color="white" fontSize="lg" href={gitlink}>Check it out on GitHub!</Link>
+  );
+};
+
+type ProjectProps = {
+  name: string;
+  content: string;
+  gitlink: string;
+  schoolProject: boolean;
+};
+
+const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
+  return (
+    <Box borderWidth="medium" borderColor="pink" borderRadius={10} minW="300px" h="300px" p={2}>
+      <VStack h="100%">
+        <Text>{name}</Text>
+        <Text fontSize="xl">{content}</Text>
+        <Spacer />
+        <GitHubLink gitlink={gitlink} schoolProject={schoolProject} />
+      </VStack>
+    </Box>
+  );
+};
+
+const ProjectBlock = ({ title, projects }: { title: string; projects: ProjectProps[] }) => {
+  const projectComponents = projects.map(({ name, content, gitlink, schoolProject }) => {
+    return <Project name={name} content={content} gitlink={gitlink} schoolProject={schoolProject} />
+  });
+  return (
+    <PageSection mt={4} p={4} h="auto">
+      <Text>{title}</Text>
+      <HStack p={4} spacing={10} m="auto" w="100%" overflow="scroll">
+        {projectComponents}
+      </HStack>
+    </PageSection>
+  );
+};
+
 export const Website = () => {
+  const [personalProjects, setPersonalProjects] = React.useState<ProjectProps[]>([]);
+  const [schoolProjects, setSchoolProjects] = React.useState<ProjectProps[]>([]);
+
+  React.useEffect(() => {
+    Axios.get('/projects/personal').then((res) => {setPersonalProjects(res.data.projects)});
+    Axios.get('/projects/school').then((res) => {setSchoolProjects(res.data.projects)});
+  }, []);
+
   return (
     <Box
       bgGradient='linear(to-tl, #832cdd, #ce24ad)'
@@ -132,6 +184,8 @@ export const Website = () => {
       <Header />
       <LandingBlock />
       <SecondBlock />
+      <ProjectBlock title={"Personal Projects"} projects={personalProjects}/>
+      <ProjectBlock title={"School Projects"} projects={schoolProjects}/>
     </Box>
   );
 }

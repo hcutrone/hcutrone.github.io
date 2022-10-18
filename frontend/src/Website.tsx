@@ -174,7 +174,7 @@ const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
   return (
     <Box borderWidth="medium" borderColor="pink" borderRadius={10} minW="300px" h="300px" p={2}>
       <VStack h="100%">
-        <Text>{name}</Text>
+        <Text fontSize="3xl">{name}</Text>
         <Text fontSize="xl">{content}</Text>
         <Spacer />
         <GitHubLink gitlink={gitlink} schoolProject={schoolProject} />
@@ -192,12 +192,12 @@ const Subtitle = ({ title }: { title: string }) => {
 
 const ProjectBlock = ({ title, projects }: { title: string; projects: ProjectProps[] }) => {
   const projectComponents = projects.map(({ name, content, gitlink, schoolProject }) => {
-    return <Project name={name} content={content} gitlink={gitlink} schoolProject={schoolProject} />
+    return <Project key={name} name={name} content={content} gitlink={gitlink} schoolProject={schoolProject} />
   });
   return (
-    <PageSection mt={4} p={4} h="auto">
+    <PageSection mt={4} py={4} px={8} h="auto">
       <Text>{title}</Text>
-      <HStack p={4} spacing={10} m="auto" w="100%" overflow="scroll">
+      <HStack py={4} spacing={10} m="auto" w="100%" overflow="scroll">
         {projectComponents}
       </HStack>
       <Subtitle title={title} />

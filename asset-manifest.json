@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cdb3d532.css",
+    "main.js": "/static/js/main.09d24a61.js",
+    "static/media/dosis-all-400-normal.woff": "/static/media/dosis-all-400-normal.510297b0c7ded87aa94b.woff",
+    "static/media/dosis-latin-400-normal.woff2": "/static/media/dosis-latin-400-normal.f667c9778f05c673b610.woff2",
+    "static/media/dosis-latin-ext-400-normal.woff2": "/static/media/dosis-latin-ext-400-normal.0ace0bc669055d74b167.woff2",
+    "static/media/dosis-vietnamese-400-normal.woff2": "/static/media/dosis-vietnamese-400-normal.59987a9ad8b0a0977fd2.woff2",
+    "index.html": "/index.html",
+    "main.cdb3d532.css.map": "/static/css/main.cdb3d532.css.map",
+    "main.09d24a61.js.map": "/static/js/main.09d24a61.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cdb3d532.css",
+    "static/js/main.09d24a61.js"
+  ]
+}

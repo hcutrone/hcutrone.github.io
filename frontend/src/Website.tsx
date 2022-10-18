@@ -1,6 +1,6 @@
-import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, SimpleGrid, Icon, IconProps, Divider, Code } from '@chakra-ui/react';
+import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, SimpleGrid, Icon, IconProps, Divider, Code, List, ListItem, ListIcon } from '@chakra-ui/react';
 import React from 'react';
-import { GradCap, Github, Linkedin, About, Experience } from './Icons'
+import { GradCap, Github, Linkedin, About, Experience, Arrow_DownRight } from './Icons'
 import Axios from 'axios';
 const BackgroundText = () => {
   return (
@@ -89,7 +89,7 @@ const GridBlock = ({ children, header, icon }: GridBlockProps) => {
       lineHeight="1.3"
       bgColor="blackAlpha.800"
       borderRadius={10}
-      px={4}
+      px={8}
       py={4}
     >
       <HStack mx="auto" mb={4}>
@@ -102,21 +102,53 @@ const GridBlock = ({ children, header, icon }: GridBlockProps) => {
   );
 };
 
+const ListWithHeader = ({ header, children }: { header: string, children: any }) => {
+  return (
+    <>
+      <Text fontSize="2xl">{header}</Text>
+      <List ml={6} mt={2} spacing={2}>{children}</List>
+    </>
+  );
+};
+
+const ListItemWithIcon = ({ children }: any) => {
+  return (
+    <ListItem>
+      <HStack>
+        <ListIcon as={Arrow_DownRight} />
+        <Text fontSize="xl">{children}</Text>
+      </HStack>
+    </ListItem>
+  );
+};
+
 const SecondBlock = () => {
   return (
-    <SimpleGrid mt={4} minChildWidth="300px" spacing={4}>
-      <GridBlock header="About Me" icon={About}>
-        <Text fontSize="2xl">Hi</Text>
-      </GridBlock>
+    <SimpleGrid mt={4} minChildWidth="300px" spacing={4} textAlign="left">
       <GridBlock header="Experience" icon={Experience}>
-        <Text fontSize="2xl">Software Engineering Apprentice - iFixit</Text>
+        <ListWithHeader header="Software Engineering Apprentice @ iFixit">
+          <ListItemWithIcon>
+            Developed in an Agile environment on full stack applications, using: JavaScript, TypeScript, React, SQL, PHP
+          </ListItemWithIcon>
+          <ListItemWithIcon>
+            Improved usability and responsiveness of profile edit page by updating from PHP to TypeScript and React
+          </ListItemWithIcon>
+          <ListItemWithIcon>
+            Gained valuable skills on professional software development through code review and peer-programming
+          </ListItemWithIcon>
+          <ListItemWithIcon>
+            Worked full-time the summer of 2022 and part-time during the school year
+          </ListItemWithIcon>
+        </ListWithHeader>
       </GridBlock>
       <GridBlock header="Education" icon={GradCap}>
-        <Text fontSize="2xl">California Polytechnic State University - San Luis Obispo</Text>
-        <Text fontSize="2xl">August 2020 - December 2023</Text>
-        <Text fontSize="2xl">GPA: 3.86</Text>
-        <Text fontSize="2xl">Dean's List: 6 Quarters</Text>
-        <Text fontSize="2xl">President's List: 2020-2022</Text>
+        <ListWithHeader header="Cal Poly - San Luis Obispo">
+          <ListItemWithIcon>Bachelor of Science in Computer Science</ListItemWithIcon>
+          <ListItemWithIcon>August 2020 - December 2023</ListItemWithIcon>
+          <ListItemWithIcon>GPA: 3.86</ListItemWithIcon>
+          <ListItemWithIcon>Dean's List: All 6 Quarters</ListItemWithIcon>
+          <ListItemWithIcon>President's List: All 2 Years</ListItemWithIcon>
+        </ListWithHeader>
       </GridBlock>
     </SimpleGrid>
   );

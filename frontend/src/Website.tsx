@@ -2,6 +2,7 @@ import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, Simple
 import React from 'react';
 import { GradCap, Github, Linkedin, About, Experience, Arrow_DownRight } from './Icons'
 import Axios from 'axios';
+
 const BackgroundText = () => {
   return (
     <Text fontSize="150px" m="0" bgGradient='linear(to-tl, #832cdd, #ce24ad)' bgClip="text">Hey there!</Text>
@@ -205,14 +206,50 @@ const ProjectBlock = ({ title, projects }: { title: string; projects: ProjectPro
   );
 };
 
+const addToLocalStorage = (key: string, value: string) => {
+  const ttl = 3600000 * 5; // milliseconds until data expires - 5 hours
+  const now = (new Date()).getTime();
+  const item = {
+    projects: value,
+    expires: now + ttl
+  }
+  localStorage.setItem(key, JSON.stringify(item));
+};
+
+const getFromLocalStorage = (key: string) => {
+  const itemStr = localStorage.getItem(key);
+  if (!itemStr) {
+    return null;
+  }
+  const item = JSON.parse(itemStr);
+  const now = (new Date()).getTime();
+  if (item.expires < now) {
+    localStorage.removeItem(key);
+    return null;
+  }
+  return item.projects;
+};
+
 export const Website = () => {
-  const [personalProjects, setPersonalProjects] = React.useState<ProjectProps[]>([]);
-  const [schoolProjects, setSchoolProjects] = React.useState<ProjectProps[]>([]);
+  const localStoragePersonal = getFromLocalStorage("personalProjects");
+  const localStorageSchool = getFromLocalStorage("schoolProjects");
+  const [personalProjects, setPersonalProjects] = React.useState<ProjectProps[]>(localStoragePersonal ? localStoragePersonal : []);
+  const [schoolProjects, setSchoolProjects] = React.useState<ProjectProps[]>(localStorageSchool ? localStorageSchool : []);
 
   React.useEffect(() => {
-    Axios.get('/projects/personal').then((res) => {setPersonalProjects(res.data.projects)});
-    Axios.get('/projects/school').then((res) => {setSchoolProjects(res.data.projects)});
-  }, []);
+    if (!localStoragePersonal) {
+      Axios.get('/projects/personal').then((res) => {
+        setPersonalProjects(res.data.projects);
+        addToLocalStorage("personalProjects", res.data.projects);
+      });
+    }
+    if (!localStorageSchool) {
+      Axios.get('/projects/school').then((res) => {
+        setSchoolProjects(res.data.projects);
+        addToLocalStorage("schoolProjects", res.data.projects);
+      });
+    }
+  }, [localStoragePersonal, localStorageSchool]);
 
   return (
     <Box

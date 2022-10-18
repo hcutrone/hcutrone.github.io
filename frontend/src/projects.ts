@@ -76,7 +76,7 @@ export const getPersonalProjects = () => {
    },
    {
       "name":"Novellas for the Fellas",
-      "content":"A Book Club app created for our Software Egineering class",
+      "content":"A Book Club app created for our Software Engineering class",
       "gitlink":"https://github.com/hcutrone/Novellas-for-the-Fellas",
       "schoolProject":false
    },

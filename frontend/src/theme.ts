@@ -4,7 +4,7 @@ import { ComponentStyleConfig } from "@chakra-ui/react";
 const Text: ComponentStyleConfig = {
   baseStyle: {
     color: "white",
-    fontSize: "4xl",
+    fontSize: { base: "lg", sm: "xl", md: "2xl", lg: "3xl" },
   },
 };
 

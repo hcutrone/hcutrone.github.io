@@ -8,6 +8,13 @@ const Text: ComponentStyleConfig = {
   },
 };
 
+const Heading: ComponentStyleConfig = {
+  baseStyle: {
+    color: "white",
+    fontSize: { base: "50px", sm: "60px", md: "80px", lg: "100px" },
+  },
+};
+
 export const theme = extendTheme({
   styles: {
     global: {
@@ -18,8 +25,10 @@ export const theme = extendTheme({
   },
   components: {
     Text,
+    Heading,
   },
   fonts: {
     body: `'Dosis', sans-serif`,
+    heading: `'Dosis', sans-serif`,
   },
 });

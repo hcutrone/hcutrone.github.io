@@ -1,16 +1,16 @@
-import { VStack, Image, Text } from "@chakra-ui/react";
+import { VStack, Image, Text, Heading } from "@chakra-ui/react";
 import { PageSection } from "./Shared";
 
 const BackgroundText = () => {
   return (
-    <Text
+    <Heading
       fontSize={{ base: "50px", sm: "60px", md: "80px", lg: "100px" }}
       m="0"
       bgGradient="linear(to-tl, #832cdd, #ce24ad)"
       bgClip="text"
     >
       Hey there!
-    </Text>
+    </Heading>
   );
 };
 

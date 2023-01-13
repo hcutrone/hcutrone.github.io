@@ -13,7 +13,7 @@ export const Website = () => {
       m="auto"
       p={4}
       textAlign="center"
-      alignItems="ceGnter"
+      alignItems="center"
     >
       <Header />
       <LandingBlock />

@@ -6,6 +6,7 @@ import {
   Spacer,
   Text,
   VStack,
+  Heading,
 } from "@chakra-ui/react";
 import { PageSection } from "./Shared";
 
@@ -44,7 +45,7 @@ const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
       p={2}
     >
       <VStack h="100%">
-        <Text fontSize="3xl">{name}</Text>
+        <Text fontSize="2xl">{name}</Text>
         <Text fontSize="xl">{content}</Text>
         <Spacer />
         <GitHubLink gitlink={gitlink} schoolProject={schoolProject} />
@@ -56,7 +57,7 @@ const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
 const Subtitle = ({ title }: { title: string }) => {
   if (title === "School Projects") {
     return (
-      <Text fontSize="lg">
+      <Text fontSize="lg" mt={2}>
         These projects were created for a class, so the code is private. I'd be
         happy to send you the code directly if you email me at{" "}
         <Code>harrisoncutrone@gmail.com</Code>
@@ -64,6 +65,14 @@ const Subtitle = ({ title }: { title: string }) => {
     );
   }
   return null;
+};
+
+const ScrollText = () => {
+  return (
+    <Text mt={-3} fontSize="lg">
+      Scroll for more --{">"}
+    </Text>
+  );
 };
 
 export const ProjectBlock = ({
@@ -88,10 +97,11 @@ export const ProjectBlock = ({
   );
   return (
     <PageSection mt={4} py={4} px={8} h="auto">
-      <Text>{title}</Text>
+      <Heading>{title}</Heading>
       <HStack py={4} spacing={10} m="auto" w="100%" overflow="scroll">
         {projectComponents}
       </HStack>
+      <ScrollText />
       <Subtitle title={title} />
     </PageSection>
   );

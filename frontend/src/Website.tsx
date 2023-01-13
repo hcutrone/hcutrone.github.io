@@ -1,24 +1,12 @@
 import { Text, Flex, FlexProps, Box, HStack, VStack, Spacer, Link, Image, SimpleGrid, Icon, IconProps, Divider, Code, List, ListItem, ListIcon } from '@chakra-ui/react';
 import React from 'react';
-import { GradCap, Github, Linkedin, About, Experience, Arrow_DownRight } from './Icons'
+import { GradCap, Experience, Arrow_DownRight } from './Icons'
 import { getPersonalProjects, getSchoolProjects } from './projects';
+import { Header } from './components';
 
 const BackgroundText = () => {
   return (
     <Text fontSize="150px" m="0" bgGradient='linear(to-tl, #832cdd, #ce24ad)' bgClip="text">Hey there!</Text>
-  )
-};
-
-type LogoLinkProps = {
-  url: string;
-  icon: React.FC;
-}
-
-const LogoLink = ({ url, icon, ...iconProps }: LogoLinkProps & IconProps) => {
-  return (
-    <Link href={url}>
-      <Icon as={icon} {...iconProps}/>
-    </Link>
   )
 };
 
@@ -39,23 +27,6 @@ const PageSection = ({ children, ...flexProps }: PageSectionProps & FlexProps) =
     >
       {children}
     </Flex>
-  );
-};
-
-const Header = () => {
-  return (
-    <VStack
-      w="32px"
-      h="100vh"
-      position="fixed"
-      mt={-4}
-      spacing={10}
-    >
-      <Spacer />
-      <LogoLink url="https://www.github.com/hcutrone" icon={Github} boxSize={6} />
-      <LogoLink url="https://www.linkedin.com/in/hcutrone" icon={Linkedin} boxSize={6} />
-      <Spacer />
-    </VStack>
   );
 };
 

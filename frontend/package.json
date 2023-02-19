@@ -8,7 +8,7 @@
     "@emotion/styled": "^11.10.4",
     "@fontsource/dosis": "^4.5.10",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.11.62",
+    "@types/node": "^16.18.11",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
     "axios": "^1.1.2",

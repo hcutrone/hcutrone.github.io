@@ -8,6 +8,7 @@ import {
   List,
   ListItem,
   ListIcon,
+  Heading,
 } from "@chakra-ui/react";
 import { GradCap, Experience, Arrow_DownRight } from "../Icons";
 
@@ -29,7 +30,7 @@ const GridBlock = ({ children, header, icon }: GridBlockProps) => {
     >
       <HStack mx="auto" mb={4}>
         <Icon as={icon} boxSize={10} mr={4} />
-        <Text>{header}</Text>
+        <Heading>{header}</Heading>
       </HStack>
       <Divider mb={4} />
       {children}
@@ -67,7 +68,7 @@ const ListItemWithIcon = ({ children }: any) => {
 
 export const AboutMe = () => {
   return (
-    <SimpleGrid mt={4} minChildWidth="300px" spacing={4} textAlign="left">
+    <SimpleGrid mt={4} minChildWidth="325px" spacing={4} textAlign="left">
       <GridBlock header="Experience" icon={Experience}>
         <ListWithHeader header="Software Engineering Apprentice @ iFixit">
           <ListItemWithIcon>

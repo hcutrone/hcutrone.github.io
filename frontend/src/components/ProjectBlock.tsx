@@ -7,6 +7,7 @@ import {
   Text,
   VStack,
   Heading,
+  Divider,
 } from "@chakra-ui/react";
 import { PageSection } from "./Shared";
 
@@ -38,7 +39,7 @@ const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
   return (
     <Box
       borderWidth="medium"
-      borderColor="pink"
+      borderColor="white"
       borderRadius={10}
       minW="300px"
       h="300px"
@@ -46,6 +47,7 @@ const Project = ({ name, content, gitlink, schoolProject }: ProjectProps) => {
     >
       <VStack h="100%">
         <Text fontSize="2xl">{name}</Text>
+        <Divider />
         <Text fontSize="xl">{content}</Text>
         <Spacer />
         <GitHubLink gitlink={gitlink} schoolProject={schoolProject} />
